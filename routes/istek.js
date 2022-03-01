@@ -9,7 +9,7 @@ router.delete("/sil/:id",(req,res)=>{
     db.query(`DELETE FROM istekler WHERE id = '${req.params.id}' `,(err,result)=>{
         if(err) throw err;  
         console.log("inserrted")
-        db.end()
+        
         res.json(req.body)
     })
 })
@@ -21,7 +21,7 @@ router.post("/kisayol",(req,res)=>{
     ) `,(err,result)=>{
         if(err) throw err;  
         console.log("inserrted")
-        db.end()
+        
         res.json(req.body)
     })
 })
@@ -29,7 +29,7 @@ router.post("/kisayol",(req,res)=>{
 router.get("/list/:slug",(req,res)=>{
     db.query(`SELECT * FROM istekler WHERE slug = '${req.params.slug}'`,(err,result)=>{
         if(err) throw err;
-        db.end()
+        
         res.json(result)
     })
 })
@@ -37,7 +37,7 @@ router.get("/list/:slug",(req,res)=>{
 router.get("/talepler/:slug",(req,res)=>{
     db.query(`SELECT * FROM arzular WHERE NOT durum = 'tamam' AND to_slug = '${req.params.slug}'` ,(err,result)=>{
         if(err) throw err;
-        db.end()
+        
         res.json(result)
     })
 })
@@ -46,7 +46,7 @@ router.get("/talepler/:slug",(req,res)=>{
 router.put("/guncelle/:id",(req,res)=>{
     db.query(`UPDATE arzular SET durum = '${req.body.durum}' WHERE id = '${req.params.id}' ` ,(err,result)=>{
         if(err) throw err;
-        db.end()
+        
         res.json(result)
     })
 })
@@ -59,7 +59,7 @@ router.post("/",(req,res)=>{
     ) `,(err,result)=>{
         if(err) throw err;  
         console.log("inserrted")
-        db.end()
+        
         res.json(req.body)
     })
 })
